@@ -1,2 +1,28 @@
-version: '1.0'
-entries: []
+version: 1.0.0
+entries:
+  - id: PROV-RETR-001
+    source:
+      repository: NORA-BITSY/nora-cleanroom-platform
+      commit: 451f8604
+      paths:
+        - packages/context-compiler/src/index.ts
+        - packages/retrieval/src/index.ts
+    duplicate_lineage:
+      repository: NORA-BITSY/nora-foundation-monorepo
+      commit: dceac8ba
+      notes: "Identical context compiler contracts blob found in monorepo; nora-cleanroom-platform chosen as single canonical source lineage."
+    origin_status: nora-authored
+    original_license: Unlicensed
+    target:
+      repository: NORAFoundation/nora-retrieval
+      paths:
+        - src/nora_retrieval/compiler.py
+    treatment: PRIMARY_TRANSPLANT_AND_EXPAND
+    changes:
+      - Ported cleanroom ContextCompiler lineage into Python reference implementation
+      - Added multi-strategy ledger recording and contradiction handling
+    review:
+      secret_scan: pass
+      privacy_scan: pass
+      license_review: pass
+      reviewer: migration-agent
