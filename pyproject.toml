@@ -2,14 +2,19 @@
 requires = ["hatchling>=1.25"]
 build-backend = "hatchling.build"
 
+[tool.hatch.build.targets.wheel]
+packages = ["src/nora_retrieval"]
+
 [project]
 name = "nora_retrieval"
 version = "0.0.1"
-description = "Auditable purpose-aware retrieval and Context Compiler for heterogeneous evidence and authority corpora."
+description = "Auditable, purpose-aware retrieval and Context Compiler for heterogeneous evidence and authority corpora."
 readme = "README.md"
 requires-python = ">=3.11"
 license = { text = "Apache-2.0" }
-dependencies = []
+dependencies = [
+  "pydantic>=2.0"
+]
 
 [project.optional-dependencies]
 dev = [
