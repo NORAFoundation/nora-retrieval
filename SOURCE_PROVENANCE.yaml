@@ -26,3 +26,26 @@ entries:
       privacy_scan: pass
       license_review: pass
       reviewer: migration-agent
+  - id: PROV-RETR-002
+    source:
+      repository: NORAFoundation/meridian
+      commit: 7059de20
+      paths:
+        - src/meridian/search.py
+        - src/meridian/timeline.py
+    origin_status: nora-authored
+    original_license: Proprietary
+    target:
+      repository: NORAFoundation/nora-retrieval
+      paths:
+        - src/nora_retrieval/strategies/lexical.py
+        - src/nora_retrieval/strategies/temporal.py
+    treatment: REFACTOR_EXTRACT
+    changes:
+      - Extracted SQLite FTS5 phrase search and temporal filtering baselines
+      - Adapted raw database queries to CandidateResult strategy interfaces
+    review:
+      secret_scan: pass
+      privacy_scan: pass
+      license_review: pass
+      reviewer: migration-agent
