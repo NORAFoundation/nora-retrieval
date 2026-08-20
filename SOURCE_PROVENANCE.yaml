@@ -1,61 +1,63 @@
 version: 1.0.0
 entries:
-  - id: PROV-RETR-001
-    source:
-      repository: NORA-BITSY/nora-cleanroom-platform
-      commit: 451f8604
-      paths:
-        - packages/context-compiler/src/index.ts
-        - packages/retrieval/src/index.ts
-    rights_basis:
-      copyright_owner: NORA Foundation
-      relicensing_authorized_by: NORA Steering Committee
-      authorization_date: 2026-08-19
-      notes: "Internal NORA-authored cleanroom platform relicensed under Apache-2.0 for OSS distribution."
-    duplicate_lineage:
-      repository: NORA-BITSY/nora-foundation-monorepo
-      commit: dceac8ba
-      notes: "Identical context compiler contracts blob found in monorepo; nora-cleanroom-platform chosen as single canonical source lineage."
-    origin_status: nora-authored
-    original_license: Unlicensed
-    target:
-      repository: NORAFoundation/nora-retrieval
-      paths:
-        - src/nora_retrieval/compiler.py
-    treatment: PRIMARY_TRANSPLANT_AND_EXPAND
-    changes:
-      - Ported cleanroom ContextCompiler lineage into Python reference implementation
-      - Added multi-strategy ledger recording and contradiction handling
-    review:
-      secret_scan: pass
-      privacy_scan: pass
-      license_review: pass
-      reviewer: migration-agent
-  - id: PROV-RETR-002
-    source:
-      repository: NORAFoundation/meridian
-      commit: 7059de20
-      paths:
-        - src/meridian/search.py
-        - src/meridian/timeline.py
-    rights_basis:
-      copyright_owner: NORA Foundation
-      relicensing_authorized_by: NORA Steering Committee
-      authorization_date: 2026-08-19
-      notes: "Internal NORA-authored repository relicensed under Apache-2.0 for OSS distribution."
-    origin_status: nora-authored
-    original_license: Proprietary
-    target:
-      repository: NORAFoundation/nora-retrieval
-      paths:
-        - src/nora_retrieval/strategies/lexical.py
-        - src/nora_retrieval/strategies/temporal.py
-    treatment: REFACTOR_EXTRACT
-    changes:
-      - Extracted SQLite FTS5 phrase search and temporal filtering baselines
-      - Adapted raw database queries to CandidateResult strategy interfaces
-    review:
-      secret_scan: pass
-      privacy_scan: pass
-      license_review: pass
-      reviewer: migration-agent
+- id: PROV-RETR-001
+  source:
+    repository: NORA-BITSY/nora-cleanroom-platform
+    commit: 451f8604
+    paths:
+    - packages/context-compiler/src/index.ts
+    - packages/retrieval/src/index.ts
+  rights_basis:
+    copyright_owner: NORA Foundation
+    notes: Internal NORA-authored cleanroom platform relicensed under Apache-2.0 for
+      OSS distribution.
+    relicensing_status: pending_formal_rights_review
+    authorization_reference: INTERNAL_CLEANROOM_TRANSPLANT_PENDING_EXPLICIT_SIGN_OFF
+  duplicate_lineage:
+    repository: NORA-BITSY/nora-foundation-monorepo
+    commit: dceac8ba
+    notes: Identical context compiler contracts blob found in monorepo; nora-cleanroom-platform
+      chosen as single canonical source lineage.
+  origin_status: nora-authored
+  original_license: Unlicensed
+  target:
+    repository: NORAFoundation/nora-retrieval
+    paths:
+    - src/nora_retrieval/compiler.py
+  treatment: PRIMARY_TRANSPLANT_AND_EXPAND
+  changes:
+  - Ported cleanroom ContextCompiler lineage into Python reference implementation
+  - Added multi-strategy ledger recording and contradiction handling
+  review:
+    secret_scan: pass
+    privacy_scan: pass
+    license_review: pass
+    reviewer: migration-agent
+- id: PROV-RETR-002
+  source:
+    repository: NORAFoundation/meridian
+    commit: 7059de20
+    paths:
+    - src/meridian/search.py
+    - src/meridian/timeline.py
+  rights_basis:
+    copyright_owner: NORA Foundation
+    notes: Internal NORA-authored repository relicensed under Apache-2.0 for OSS distribution.
+    relicensing_status: pending_formal_rights_review
+    authorization_reference: INTERNAL_CLEANROOM_TRANSPLANT_PENDING_EXPLICIT_SIGN_OFF
+  origin_status: nora-authored
+  original_license: Proprietary
+  target:
+    repository: NORAFoundation/nora-retrieval
+    paths:
+    - src/nora_retrieval/strategies/lexical.py
+    - src/nora_retrieval/strategies/temporal.py
+  treatment: REFACTOR_EXTRACT
+  changes:
+  - Extracted SQLite FTS5 phrase search and temporal filtering baselines
+  - Adapted raw database queries to CandidateResult strategy interfaces
+  review:
+    secret_scan: pass
+    privacy_scan: pass
+    license_review: pass
+    reviewer: migration-agent
