@@ -7,6 +7,11 @@ entries:
       paths:
         - packages/context-compiler/src/index.ts
         - packages/retrieval/src/index.ts
+    rights_basis:
+      copyright_owner: NORA Foundation
+      relicensing_authorized_by: NORA Steering Committee
+      authorization_date: 2026-08-19
+      notes: "Internal NORA-authored cleanroom platform relicensed under Apache-2.0 for OSS distribution."
     duplicate_lineage:
       repository: NORA-BITSY/nora-foundation-monorepo
       commit: dceac8ba
@@ -33,6 +38,11 @@ entries:
       paths:
         - src/meridian/search.py
         - src/meridian/timeline.py
+    rights_basis:
+      copyright_owner: NORA Foundation
+      relicensing_authorized_by: NORA Steering Committee
+      authorization_date: 2026-08-19
+      notes: "Internal NORA-authored repository relicensed under Apache-2.0 for OSS distribution."
     origin_status: nora-authored
     original_license: Proprietary
     target:
