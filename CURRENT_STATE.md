@@ -14,6 +14,13 @@ The minimum reference vertical slice is complete and verified:
 - `src/nora_retrieval/strategies/lexical.py`: Local FTS5/BM25 phrase and NEAR search strategy derived from Meridian baselines.
 - `src/nora_retrieval/strategies/temporal.py`: Date-range bounded temporal retrieval strategy.
 
+## Contract Targets — Not Yet Implemented
+
+The following symbols are described in broader documentation but have no implementation in the current repository:
+
+- `VectorRetrievalStrategy` — hybrid vector search with pgvector embeddings
+- `HybridScoringEngine` — weighted combination of lexical, semantic, and authority scores
+- `RetrievalAPI` — HTTP service exposing retrieval endpoints (FastAPI/Flask)
 ## Verified
 
 - `make test` / `pytest`: **7 passed in 0.12s**.

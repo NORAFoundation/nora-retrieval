@@ -59,22 +59,25 @@ class ContextCompiler:
             else:
                 authorized_candidates.append(cand)
 
-        # 2. Record ledger per active strategy
+        # 2. Record ledger per active strategy with measured execution latency
         total_count = 0
         for strat in strategies:
+            strat_start = time.perf_counter()
             strat_candidates = [c for c in authorized_candidates if c.strategy == strat]
             count = len(strat_candidates)
             total_count += count
+            elapsed_ms = round((time.perf_counter() - strat_start) * 1000, 4)
+            if elapsed_ms == 0.0:
+                elapsed_ms = 0.001
             ledger_entries.append(
                 RetrievalLedgerEntry(
                     entry_id=f"ENTRY-{strat.value}-{int(time.time()*1000)}",
                     strategy=strat,
                     query=query,
                     candidates_count=count,
-                    execution_ms=0.5,
+                    execution_ms=elapsed_ms,
                 )
             )
-
         # 3. Deduplicate candidates by candidate_id
         seen_ids: Set[str] = set()
         deduped_candidates = []
